@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Form to Table</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    form {
+      margin-bottom: 2rem;
+    }
+    input {
+      margin-right: 1rem;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+    }
+    th {
+      background: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Add Entry</h2>
+  <form id="entryForm">
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <button type="submit">Add</button>
+  </form>
+
+  <h2>Entries</h2>
+  <table id="entriesTable">
+    <thead>
+      <tr>
+        <th>Name</th><th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will appear here -->
+    </tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById('entryForm');
+    const tableBody = document.querySelector('#entriesTable tbody');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // prevent page reload
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (name && email) {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${name}</td><td>${email}</td>`;
+        tableBody.appendChild(row);
+
+        // clear form
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
