@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_yavor_syarov_medical_calendar_1756975231751-push-trigger-input-set
+  identifier: Build_yavor_syarov_medical_calendar_1756975231751pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_yavor_syarov_medical_calendar_1756975231751
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
